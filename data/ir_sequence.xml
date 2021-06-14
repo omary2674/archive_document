@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <data noupdate="1">
+        <!--  noupdate="1" ie. not accept update -->
+        <record id="sequence_archive_document" model="ir.sequence">
+            <field name="name">Archive Document</field>
+            <field name="code">archive.document</field>
+            <field name="prefix">ARC/%(range_year)s/</field>
+            <field eval="1" name="number_next"/>
+            <field eval="1" name="number_increment"/>
+            <field eval="True" name="use_date_range"/>
+            <field eval="False" name="company_id"/>
+            <field name="padding">8</field>
+        </record>
+    </data>
+</odoo>

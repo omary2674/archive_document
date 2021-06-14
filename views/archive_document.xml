@@ -1,0 +1,261 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="archive_document_tree_view" model="ir.ui.view">
+        <field name="name">archive.document.tree.view</field>
+        <field name="model">archive.document</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree string="Archive Document">
+                <field name="arc_code"/>
+                <field name="doc_no"/>
+                <field name="doc_date"/>
+                <field name="doc_name"/>
+                <field name="ref_no"/>
+                <field name="ref_date"/>
+<!--                <field name="dept_id"/>-->
+                <field name="tag_id"/>
+                <field name="cat_id"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="archive_document_kanban" model="ir.ui.view">
+        <field name="name">archive.document.kanban</field>
+        <field name="model">archive.document</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="cat_id">
+                <field name="color"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_color_{{kanban_getcolor(record.color.raw_value)}}
+                                                oe_kanban_global_click_edit oe_semantic_html_override
+                                                oe_kanban_card {{record.group_fancy==1 ? 'oe_kanban_card_fancy' : ''}}">
+                            <div class="oe_dropdown_kanban">
+                                <!-- drop down menu-->
+                                <div class="oe_dropdown_toggle">
+                                    <i class="fa fa-bars fa-lg" title="Manage" aria-label="Manage"/>
+                                    <ul class="oe_dropdown_menu">
+                                        <li>
+                                            <a type="delete">Delete</a>
+                                        </li>
+                                        <li>
+                                            <ul class="oe_kanban_colorpicker" data-field="color"/>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="oe_clear"></div>
+                            </div>
+                            <div t-attf-class="oe_kanban_content">
+                                <!--- title  -->
+                                Name:
+                                <field name="doc_name"/>
+                                <br/>
+                                No:
+                                <field name="doc_no"/>
+                                <br/>
+                                Date:
+                                <field name="doc_date"/>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- Define Bank LC Calendar view -->
+    <record id="archive_document_calendar_view" model="ir.ui.view">
+        <field name="name">archive.document.calendar</field>
+        <field name="model">archive.document</field>
+        <field name="arch" type="xml">
+            <calendar string="Archive Document" date_start="doc_date" color="cat_id">
+                <field name="doc_name"/>
+                <field name="doc_no"/>
+            </calendar>
+        </field>
+    </record>
+
+    <!-- Define Bank LC Graph  -->
+    <record id="archive_document_graph_view" model="ir.ui.view">
+        <field name="name">archive.document.graph</field>
+        <field name="model">archive.document</field>
+        <field name="arch" type="xml">
+            <graph string="Archive Document by Category" stacked="Fales">
+                <field name="cat_id" group="True"/>
+                <field name="doc_no" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <record id="archive_document_form_view" model="ir.ui.view">
+        <field name="name">archive.document.form.view</field>
+        <field name="model">archive.document</field>
+        <field name="arch" type="xml">
+            <form string="Bank LC">
+
+                <sheet>
+                    <div class="oe_title">
+                        <h2><field name="arc_code"/></h2>
+                    </div>
+                    <group string="Archive Document">
+                        <group>
+                            <field name="doc_no"/>
+                            <field name="doc_date"/>
+                            <field name="doc_name"/>
+                            <field name="ref_no"/>
+                            <field name="ref_date"/>
+                            <field name="is_secret"/>
+                        </group>
+                        <group>
+<!--                            <field name="dept_id"/>-->
+                            <field name="tag_id"/>
+                            <field name="cat_id"/>
+                            <field name="doc_file"/>
+                            <field name="doc_file_name"/>
+                        </group>
+                    </group>
+                    <group>
+                        <field name="doc_description"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ########################## Archive Departments ############################## -->
+<!--    <record id="archive_dept_tree_view" model="ir.ui.view">-->
+<!--        <field name="name">archive.dept.tree.view</field>-->
+<!--        <field name="model">archive.dept</field>-->
+<!--        <field name="priority" eval="1"/>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <tree string="Archive Departments">-->
+<!--                <field name="id"/>-->
+<!--                <field name="name"/>-->
+<!--            </tree>-->
+<!--        </field>-->
+<!--    </record>-->
+
+<!--    <record id="archive_dept_form_view" model="ir.ui.view">-->
+<!--        <field name="name">archive.dept.form.view</field>-->
+<!--        <field name="model">archive.dept</field>-->
+<!--        <field name="arch" type="xml">-->
+<!--            <form string="Archive Departments">-->
+<!--                <sheet>-->
+<!--                    <group string="Department">-->
+<!--                        <field name="name"/>-->
+<!--                    </group>-->
+<!--                </sheet>-->
+<!--            </form>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <!-- ########################## Archive Tag ############################## -->
+    <record id="archive_tag_tree_view" model="ir.ui.view">
+        <field name="name">archive.tag.tree.view</field>
+        <field name="model">archive.tag</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree string="Archive Tag">
+                <field name="id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="archive_tag_form_view" model="ir.ui.view">
+        <field name="name">archive.tag.form.view</field>
+        <field name="model">archive.tag</field>
+        <field name="arch" type="xml">
+            <form string="Archive Tag">
+                <sheet>
+                    <group string="Tag">
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <!-- ########################## Archive Category ############################## -->
+    <record id="archive_category_tree_view" model="ir.ui.view">
+        <field name="name">archive.category.tree.view</field>
+        <field name="model">archive.category</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree string="Archive Category">
+                <field name="id"/>
+                <field name="name"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="archive_category_form_view" model="ir.ui.view">
+        <field name="name">archive.category.form.view</field>
+        <field name="model">archive.category</field>
+        <field name="arch" type="xml">
+            <form string="Archive Category">
+                <sheet>
+                    <group string="Category">
+                        <field name="name"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+
+    <!--  ###################  Start Actions  ###################  -->
+    <record model="ir.actions.act_window" id="archive_document_list_action">
+        <field name="name">Archive Document</field>
+        <field name="res_model">archive.document</field>
+        <field name="view_mode">tree,form,calendar,graph,kanban</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create Archive Doc</p>
+        </field>
+    </record>
+
+<!--    <record model="ir.actions.act_window" id="archive_dept_list_action">-->
+<!--        <field name="name">Archive Dept</field>-->
+<!--        <field name="res_model">archive.dept</field>-->
+<!--        <field name="view_mode">tree,form</field>-->
+<!--        <field name="help" type="html">-->
+<!--            <p class="o_view_nocontent_smiling_face">Create Department</p>-->
+<!--        </field>-->
+<!--    </record>-->
+
+    <record model="ir.actions.act_window" id="archive_tag_list_action">
+        <field name="name">Archive Tag</field>
+        <field name="res_model">archive.tag</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create Tag</p>
+        </field>
+    </record>
+
+    <record model="ir.actions.act_window" id="archive_category_list_action">
+        <field name="name">Archive Category</field>
+        <field name="res_model">archive.category</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create Category</p>
+        </field>
+    </record>
+
+
+    <!-- Define Root Menu  -->
+    <menuitem id="root_arc_menu" name="Archive Document"/>
+
+    <!-- Define Main Menu  -->
+    <menuitem id="main_arc_menu" name="Archive Document" parent="root_arc_menu"/>
+    <menuitem id="config_arc_menu" name="Config" parent="root_arc_menu"/>
+
+    <!-- Define Sub-Main Menu  -->
+    <menuitem id="sub_main_arc_menu" name="Document" parent="main_arc_menu" action="archive_document_list_action"/>
+
+    <!-- Define Sub-Config Menu  -->
+    <menuitem id="sub1_config_arc_menu" name="Category" parent="config_arc_menu" action="archive_category_list_action"/>
+    <menuitem id="sub2_config_arc_menu" name="Tag" parent="config_arc_menu" action="archive_tag_list_action"/>
+    <!-- End Menu  -->
+</odoo>
+
+
