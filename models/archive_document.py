@@ -47,7 +47,7 @@ class ArchiveDocument(models.Model):
     _name = 'archive.document'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Archive Document"
-    #_rec_name = "arc_name"
+    # _rec_name = "arc_name"
 
     arc_code = fields.Char(string="Arc Code", required=True, index=True, copy=False, readonly=True, default=_('New'))
 
@@ -73,7 +73,6 @@ class ArchiveDocument(models.Model):
     #     if str(self.doc_file_name.split(".")[1]) != 'pdf':
     #         raise ValidationError("Cannot upload file different from .pdf file")
 
-
     @api.model
     def create(self, vals):
         if vals.get('arc_code', _('New')) == _('New'):
@@ -85,3 +84,10 @@ class ArchiveDocument(models.Model):
         ('arc_code_uk',
          'unique (arc_code)',
          'The arc_code should be unique')}
+
+
+class ResUsers(models.Model):
+    _inherit = 'res.users'
+
+    cat_ids = fields.Many2many('archive.category', string="Allowed Categories")
+    tag_ids = fields.Many2many('archive.tag', string="Allowed Tags")

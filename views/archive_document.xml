@@ -13,6 +13,7 @@
                 <field name="ref_no"/>
                 <field name="ref_date"/>
                 <field name="cat_id"/>
+                <field name="tag_id" widget="many2many_tags" />
                 <field name="doc_file_name" invisible="1"/>
                 <field name="doc_file" filename="doc_file_name" widget="binary" readonly="1"/>
             </tree>
@@ -80,6 +81,9 @@
                                 <br/>
                                 Date:
                                 <field name="doc_date"/>
+                                <br/>
+                                <field name="doc_file_name" invisible="1"/>
+                                <field name="doc_file" filename="doc_file_name" widget="binary" readonly="1"/>
                             </div>
                         </div>
                     </t>

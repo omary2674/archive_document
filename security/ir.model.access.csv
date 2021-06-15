@@ -1,3 +1,6 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 archive_document_manager,archive.document.manager,model_archive_document,group_manager_archive_document,1,1,1,1
 archive_document_read,archive.document.read,model_archive_document,base.group_user,1,0,0,0
+archive_tag_read,archive.tag.read,model_archive_tag,base.group_user,1,0,0,0
+archive_category_read,archive.category.read,model_archive_category,base.group_user,1,0,0,0
+
