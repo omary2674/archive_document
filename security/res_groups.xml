@@ -4,6 +4,7 @@
         <record id="group_manager_archive_document" model="res.groups">
             <field name="name">Archive Document / Manager</field>
         </record>
+
         <record id="only_responsible_can_modify" model="ir.rule">
             <field name="name">Only Manager can modify Archive Document</field>
             <field name="model_id" ref="model_archive_document"/>

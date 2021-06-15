@@ -12,10 +12,35 @@
                 <field name="doc_name"/>
                 <field name="ref_no"/>
                 <field name="ref_date"/>
-<!--                <field name="dept_id"/>-->
-                <field name="tag_id"/>
                 <field name="cat_id"/>
+                <field name="doc_file_name" invisible="1"/>
+                <field name="doc_file" filename="doc_file_name" widget="binary" readonly="1"/>
             </tree>
+        </field>
+    </record>
+
+    <!-- Search Course view -->
+    <record id="archive_document_search_view" model="ir.ui.view">
+        <field name="name">archive.document.search.view</field>
+        <field name="model">archive.document</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="doc_no"/>
+                <field name="doc_name"/>
+                <field name="doc_date"/>
+                <field name="ref_no"/>
+                <field name="ref_date"/>
+                <field name="doc_file_name"/>
+                <field name="cat_id"/>
+                <field name="tag_id"/>
+
+                <group string="Group By">
+                    <filter name="cat_id" string="Category" context="{'group_by':'cat_id'}"/>
+                </group>
+                <searchpanel>
+                    <field name="cat_id" icon="fa-users"/>
+                </searchpanel>
+            </search>
         </field>
     </record>
 
@@ -104,14 +129,15 @@
                             <field name="doc_name"/>
                             <field name="ref_no"/>
                             <field name="ref_date"/>
-                            <field name="is_secret"/>
                         </group>
                         <group>
-<!--                            <field name="dept_id"/>-->
-                            <field name="tag_id"/>
+                            <!--                            <field name="dept_id"/>-->
+                            <field name="tag_id" widget="many2many_tags"
+                                   options="{'color_field': 'color', 'no_create_edit': True}" placeholder="Tags..."/>
                             <field name="cat_id"/>
-                            <field name="doc_file"/>
-                            <field name="doc_file_name"/>
+                            <field name="doc_file" filename="doc_file_name"/>
+                            <field name="doc_file_name" invisible="1"/>
+                            <field name="is_secret"/>
                         </group>
                     </group>
                     <group>
@@ -123,31 +149,31 @@
     </record>
 
     <!-- ########################## Archive Departments ############################## -->
-<!--    <record id="archive_dept_tree_view" model="ir.ui.view">-->
-<!--        <field name="name">archive.dept.tree.view</field>-->
-<!--        <field name="model">archive.dept</field>-->
-<!--        <field name="priority" eval="1"/>-->
-<!--        <field name="arch" type="xml">-->
-<!--            <tree string="Archive Departments">-->
-<!--                <field name="id"/>-->
-<!--                <field name="name"/>-->
-<!--            </tree>-->
-<!--        </field>-->
-<!--    </record>-->
+    <!--    <record id="archive_dept_tree_view" model="ir.ui.view">-->
+    <!--        <field name="name">archive.dept.tree.view</field>-->
+    <!--        <field name="model">archive.dept</field>-->
+    <!--        <field name="priority" eval="1"/>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <tree string="Archive Departments">-->
+    <!--                <field name="id"/>-->
+    <!--                <field name="name"/>-->
+    <!--            </tree>-->
+    <!--        </field>-->
+    <!--    </record>-->
 
-<!--    <record id="archive_dept_form_view" model="ir.ui.view">-->
-<!--        <field name="name">archive.dept.form.view</field>-->
-<!--        <field name="model">archive.dept</field>-->
-<!--        <field name="arch" type="xml">-->
-<!--            <form string="Archive Departments">-->
-<!--                <sheet>-->
-<!--                    <group string="Department">-->
-<!--                        <field name="name"/>-->
-<!--                    </group>-->
-<!--                </sheet>-->
-<!--            </form>-->
-<!--        </field>-->
-<!--    </record>-->
+    <!--    <record id="archive_dept_form_view" model="ir.ui.view">-->
+    <!--        <field name="name">archive.dept.form.view</field>-->
+    <!--        <field name="model">archive.dept</field>-->
+    <!--        <field name="arch" type="xml">-->
+    <!--            <form string="Archive Departments">-->
+    <!--                <sheet>-->
+    <!--                    <group string="Department">-->
+    <!--                        <field name="name"/>-->
+    <!--                    </group>-->
+    <!--                </sheet>-->
+    <!--            </form>-->
+    <!--        </field>-->
+    <!--    </record>-->
 
     <!-- ########################## Archive Tag ############################## -->
     <record id="archive_tag_tree_view" model="ir.ui.view">
@@ -158,6 +184,7 @@
             <tree string="Archive Tag">
                 <field name="id"/>
                 <field name="name"/>
+                <field name="color"/>
             </tree>
         </field>
     </record>
@@ -170,6 +197,7 @@
                 <sheet>
                     <group string="Tag">
                         <field name="name"/>
+                        <field name="color"/>
                     </group>
                 </sheet>
             </form>
@@ -214,14 +242,14 @@
         </field>
     </record>
 
-<!--    <record model="ir.actions.act_window" id="archive_dept_list_action">-->
-<!--        <field name="name">Archive Dept</field>-->
-<!--        <field name="res_model">archive.dept</field>-->
-<!--        <field name="view_mode">tree,form</field>-->
-<!--        <field name="help" type="html">-->
-<!--            <p class="o_view_nocontent_smiling_face">Create Department</p>-->
-<!--        </field>-->
-<!--    </record>-->
+    <!--    <record model="ir.actions.act_window" id="archive_dept_list_action">-->
+    <!--        <field name="name">Archive Dept</field>-->
+    <!--        <field name="res_model">archive.dept</field>-->
+    <!--        <field name="view_mode">tree,form</field>-->
+    <!--        <field name="help" type="html">-->
+    <!--            <p class="o_view_nocontent_smiling_face">Create Department</p>-->
+    <!--        </field>-->
+    <!--    </record>-->
 
     <record model="ir.actions.act_window" id="archive_tag_list_action">
         <field name="name">Archive Tag</field>
@@ -247,7 +275,7 @@
 
     <!-- Define Main Menu  -->
     <menuitem id="main_arc_menu" name="Archive Document" parent="root_arc_menu"/>
-    <menuitem id="config_arc_menu" name="Config" parent="root_arc_menu"/>
+    <menuitem id="config_arc_menu" name="Configuration" parent="root_arc_menu"/>
 
     <!-- Define Sub-Main Menu  -->
     <menuitem id="sub_main_arc_menu" name="Document" parent="main_arc_menu" action="archive_document_list_action"/>

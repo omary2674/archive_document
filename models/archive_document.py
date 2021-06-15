@@ -23,6 +23,7 @@ class ArchiveTag(models.Model):
     _description = "Archive Tag"
 
     name = fields.Char(string='Tag Name', required=True, Translate=True)
+    color = fields.Integer()
 
     _sql_constraints = {
         ('arc_tag_name_uk',
@@ -50,9 +51,9 @@ class ArchiveDocument(models.Model):
 
     arc_code = fields.Char(string="Arc Code", required=True, index=True, copy=False, readonly=True, default=_('New'))
 
-    doc_no = fields.Char(string='LC No.', required=True, Translate=True)
-    doc_date = fields.Date('Arc Date', required=True, default=fields.Date.today())
-    doc_name = fields.Char(string='LC Name', required=True, Translate=True)
+    doc_no = fields.Char(string='Doc No.', required=True, Translate=True)
+    doc_date = fields.Date('Doc Date', required=True, default=fields.Date.today())
+    doc_name = fields.Char(string='Doc Name', required=True, Translate=True)
     ref_no = fields.Char(string='Ref No.', Translate=True)
     ref_date = fields.Date(string='Ref Date')
 
@@ -60,11 +61,18 @@ class ArchiveDocument(models.Model):
     tag_id = fields.Many2many('archive.tag', string='Tag', Translate=True)
     cat_id = fields.Many2one('archive.category', string='Category', Translate=True)
 
-    is_secret = fields.Boolean(string="Secret")
+    is_secret = fields.Boolean(string="Is Secret")
     doc_file = fields.Binary(string="Documents")
     doc_file_name = fields.Char(string="File Name")
     doc_description = fields.Html(string="Description")
     color = fields.Integer()
+
+    # Constraint to accept only pdf file
+    # @api.constrains('doc_file')
+    # def _check_file(self):
+    #     if str(self.doc_file_name.split(".")[1]) != 'pdf':
+    #         raise ValidationError("Cannot upload file different from .pdf file")
+
 
     @api.model
     def create(self, vals):
