@@ -3,4 +3,5 @@ archive_document_manager,archive.document.manager,model_archive_document,group_m
 archive_document_read,archive.document.read,model_archive_document,base.group_user,1,0,0,0
 archive_tag_read,archive.tag.read,model_archive_tag,base.group_user,1,0,0,0
 archive_category_read,archive.category.read,model_archive_category,base.group_user,1,0,0,0
+archive_security_level_read,archive.security.level.read,model_security_level,base.group_user,1,0,0,0
 

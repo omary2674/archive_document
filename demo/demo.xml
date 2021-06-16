@@ -1,45 +1,53 @@
 <odoo>
     <data>
-        <!-- Demo Category -->
-        <record model="archive.category" id="1">
-            <field name="name">Contracts</field>
+        <record model="security.level" id="1">
+            <field name="name">Normal</field>
         </record>
-        <record model="archive.category" id="2">
-            <field name="name">Bills</field>
+        <record model="security.level" id="2">
+            <field name="name">Secure</field>
         </record>
-        <record model="archive.category" id="3">
-            <field name="name">Transfares</field>
-        </record>
-        <record model="archive.category" id="4">
-            <field name="name">Checks</field>
-        </record>
-        <record model="archive.category" id="5">
-            <field name="name">Extracts</field>
+        <record model="security.level" id="3">
+             <field name="name">High Secure</field>
         </record>
         <!-- Demo Tag -->
-         <record model="archive.tag" id="1">
-            <field name="name">fin</field>
-             <field name="color">1</field>
+        <record model="archive.tag" id="1">
+            <field name="name">Contracts</field>
+            <field name="color">1</field>
         </record>
-         <record model="archive.tag" id="2">
-            <field name="name">hr</field>
-             <field name="color">2</field>
+        <record model="archive.tag" id="2">
+            <field name="name">Bills</field>
+            <field name="color">2</field>
         </record>
-         <record model="archive.tag" id="3">
-            <field name="name">sales</field>
-             <field name="color">3</field>
+        <record model="archive.tag" id="3">
+            <field name="name">Transfares</field>
+            <field name="color">3</field>
         </record>
-         <record model="archive.tag" id="4">
-            <field name="name">purchase</field>
-             <field name="color">4</field>
+        <record model="archive.tag" id="4">
+            <field name="name">Checks</field>
+            <field name="color">4</field>
         </record>
-         <record model="archive.tag" id="5">
-            <field name="name">inventory</field>
-             <field name="color">5</field>
+        <record model="archive.tag" id="5">
+            <field name="name">Extracts</field>
+            <field name="color">5</field>
         </record>
-         <record model="archive.tag" id="6">
-            <field name="name">payroll</field>
-             <field name="color">6</field>
+        <!--        Demo category             -->
+         <record model="archive.category" id="1">
+            <field name="name">Financial</field>
+        </record>
+         <record model="archive.category" id="2">
+            <field name="name">HR</field>
+        </record>
+         <record model="archive.category" id="3">
+            <field name="name">Sales</field>
+        </record>
+         <record model="archive.category" id="4">
+            <field name="name">Purchase</field>
+        </record>
+         <record model="archive.category" id="5">
+            <field name="name">Warehouse</field>
+        </record>
+         <record model="archive.category" id="6">
+            <field name="name">Payroll</field>
         </record>
 
     </data>

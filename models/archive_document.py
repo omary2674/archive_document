@@ -42,6 +42,16 @@ class ArchiveCategory(models.Model):
          'unique (name)',
          'The Category Name should be unique')}
 
+class SecurityLevel(models.Model):
+    _name = 'security.level'
+    _description = "Security Level"
+
+    name = fields.Char(string='Security Level', required=True, Translate=True)
+
+    _sql_constraints = {
+        ('sec_level_name_uk',
+         'unique (name)',
+         'The Security Level Name should be unique')}
 
 class ArchiveDocument(models.Model):
     _name = 'archive.document'
@@ -60,8 +70,8 @@ class ArchiveDocument(models.Model):
     # dept_id = fields.Many2one('archive.dept', string='Dept', Translate=True)
     tag_id = fields.Many2many('archive.tag', string='Tag', Translate=True)
     cat_id = fields.Many2one('archive.category', string='Category', Translate=True)
+    sec_id = fields.Many2one('security.level', string="Security Level")
 
-    is_secret = fields.Boolean(string="Is Secret")
     doc_file = fields.Binary(string="Documents")
     doc_file_name = fields.Char(string="File Name")
     doc_description = fields.Html(string="Description")
@@ -91,3 +101,7 @@ class ResUsers(models.Model):
 
     cat_ids = fields.Many2many('archive.category', string="Allowed Categories")
     tag_ids = fields.Many2many('archive.tag', string="Allowed Tags")
+    sec_ids = fields.Many2many('security.level', string="Allowed Security Level")
+
+
+

@@ -11,6 +11,7 @@
                         <group>
                             <field name="cat_ids" widget="many2many_tags"/>
                             <field name="tag_ids" widget="many2many_tags"/>
+                            <field name="sec_ids" widget="many2many_tags"/>
                         </group>
                     </group>
                 </page>
