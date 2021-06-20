@@ -1,0 +1,491 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* archive_document
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0-20210610\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2021-06-20 08:58+0000\n"
+"PO-Revision-Date: 2021-06-20 12:36+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"Language: ar\n"
+"X-Generator: Poedit 3.0\n"
+
+#. module: archive_document
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_kanban
+msgid ""
+"<br/>\n"
+"                                Date:"
+msgstr ""
+
+#. module: archive_document
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_kanban
+msgid ""
+"<br/>\n"
+"                                No:"
+msgstr ""
+
+#. module: archive_document
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_kanban
+msgid "<i class=\"fa fa-bars fa-lg\" title=\"Manage\" aria-label=\"Manage\"/>"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_needaction
+msgid "Action Needed"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__activity_ids
+msgid "Activities"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__activity_exception_decoration
+msgid "Activity Exception Decoration"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__activity_state
+msgid "Activity State"
+msgstr "الحاله"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__activity_type_icon
+msgid "Activity Type Icon"
+msgstr ""
+
+#. module: archive_document
+#: model_terms:ir.ui.view,arch_db:archive_document.view_users_form_archive_document
+msgid "Allowed Archive Documents"
+msgstr "صلاحيات الارشفه"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_res_users__cat_ids
+msgid "Allowed Categories"
+msgstr "التصنيف"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_res_users__sec_ids
+msgid "Allowed Security Level"
+msgstr "درجة السرية"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_res_users__tag_ids
+msgid "Allowed Tags"
+msgstr "تاغ"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__arc_code
+msgid "Arc Code"
+msgstr "رقم الارشيف"
+
+#. module: archive_document
+#: model:ir.actions.act_window,name:archive_document.archive_category_list_action
+#: model:ir.model,name:archive_document.model_archive_category
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_category_form_view
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_category_tree_view
+msgid "Archive Category"
+msgstr "فئة الأرشيف"
+
+#. module: archive_document
+#: model:ir.actions.act_window,name:archive_document.archive_document_list_action
+#: model:ir.model,name:archive_document.model_archive_document
+#: model:ir.ui.menu,name:archive_document.main_arc_menu
+#: model:ir.ui.menu,name:archive_document.root_arc_menu
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_calendar_view
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_form_view
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_tree_view
+msgid "Archive Document"
+msgstr "أرشيف المستند"
+
+#. module: archive_document
+#: model:res.groups,name:archive_document.group_manager_archive_document
+msgid "Archive Document Restriction Manager"
+msgstr ""
+
+#. module: archive_document
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_graph_view
+msgid "Archive Document by Category"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.actions.act_window,name:archive_document.archive_tag_list_action
+#: model:ir.model,name:archive_document.model_archive_tag
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_tag_form_view
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_tag_tree_view
+msgid "Archive Tag"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_attachment_count
+msgid "Attachment Count"
+msgstr "تاغ"
+
+#. module: archive_document
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_form_view
+msgid "Bank LC"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__cat_id
+#: model:ir.ui.menu,name:archive_document.sub1_config_arc_menu
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_category_form_view
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_search_view
+msgid "Category"
+msgstr "التصنيف"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_category__name
+msgid "Category Name"
+msgstr "التصنيف"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__color
+#: model:ir.model.fields,field_description:archive_document.field_archive_tag__color
+msgid "Color"
+msgstr "اللون"
+
+#. module: archive_document
+#: model:ir.ui.menu,name:archive_document.config_arc_menu
+msgid "Configuration"
+msgstr "الاعدادات"
+
+#. module: archive_document
+#: model_terms:ir.actions.act_window,help:archive_document.archive_document_list_action
+msgid "Create Archive Doc"
+msgstr "ارشفة معاملة"
+
+#. module: archive_document
+#: model_terms:ir.actions.act_window,help:archive_document.archive_category_list_action
+msgid "Create Category"
+msgstr "انشاء تصنيف"
+
+#. module: archive_document
+#: model_terms:ir.actions.act_window,help:archive_document.archive_sec_level_action
+msgid "Create Security Level"
+msgstr "انشاء درجة سرية"
+
+#. module: archive_document
+#: model_terms:ir.actions.act_window,help:archive_document.archive_tag_list_action
+msgid "Create Tag"
+msgstr "انشاء تاغ"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_category__create_uid
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__create_uid
+#: model:ir.model.fields,field_description:archive_document.field_archive_tag__create_uid
+#: model:ir.model.fields,field_description:archive_document.field_security_level__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_category__create_date
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__create_date
+#: model:ir.model.fields,field_description:archive_document.field_archive_tag__create_date
+#: model:ir.model.fields,field_description:archive_document.field_security_level__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: archive_document
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_kanban
+msgid "Delete"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__doc_description
+msgid "Description"
+msgstr "الوصف"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_category__display_name
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__display_name
+#: model:ir.model.fields,field_description:archive_document.field_archive_tag__display_name
+#: model:ir.model.fields,field_description:archive_document.field_res_users__display_name
+#: model:ir.model.fields,field_description:archive_document.field_security_level__display_name
+msgid "Display Name"
+msgstr "الاسم المعروض"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__doc_date
+msgid "Doc Date"
+msgstr "تاريخ المعاملة"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__doc_name
+msgid "Doc Name"
+msgstr "اسم المعاملة"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__doc_no
+msgid "Doc No."
+msgstr "رقم المعاملة"
+
+#. module: archive_document
+#: model:ir.ui.menu,name:archive_document.sub_main_arc_menu
+msgid "Document"
+msgstr "المعاملة"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__doc_file
+msgid "Documents"
+msgstr "المعاملات"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__doc_file_name
+msgid "File Name"
+msgstr "اسم الملف"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_follower_ids
+msgid "Followers"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_channel_ids
+msgid "Followers (Channels)"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_partner_ids
+msgid "Followers (Partners)"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,help:archive_document.field_archive_document__activity_type_icon
+msgid "Font awesome icon e.g. fa-tasks"
+msgstr ""
+
+#. module: archive_document
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_search_view
+msgid "Group By"
+msgstr "مجموع ب"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_category__id
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__id
+#: model:ir.model.fields,field_description:archive_document.field_archive_tag__id
+#: model:ir.model.fields,field_description:archive_document.field_res_users__id
+#: model:ir.model.fields,field_description:archive_document.field_security_level__id
+msgid "ID"
+msgstr "المُعرف"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__activity_exception_icon
+msgid "Icon"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,help:archive_document.field_archive_document__activity_exception_icon
+msgid "Icon to indicate an exception activity."
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,help:archive_document.field_archive_document__message_needaction
+#: model:ir.model.fields,help:archive_document.field_archive_document__message_unread
+msgid "If checked, new messages require your attention."
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,help:archive_document.field_archive_document__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_is_follower
+msgid "Is Follower"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_category____last_update
+#: model:ir.model.fields,field_description:archive_document.field_archive_document____last_update
+#: model:ir.model.fields,field_description:archive_document.field_archive_tag____last_update
+#: model:ir.model.fields,field_description:archive_document.field_res_users____last_update
+#: model:ir.model.fields,field_description:archive_document.field_security_level____last_update
+msgid "Last Modified on"
+msgstr "آخر تعديل في"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_category__write_uid
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__write_uid
+#: model:ir.model.fields,field_description:archive_document.field_archive_tag__write_uid
+#: model:ir.model.fields,field_description:archive_document.field_security_level__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_category__write_date
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__write_date
+#: model:ir.model.fields,field_description:archive_document.field_archive_tag__write_date
+#: model:ir.model.fields,field_description:archive_document.field_security_level__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_main_attachment_id
+msgid "Main Attachment"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_has_error
+msgid "Message Delivery error"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_ids
+msgid "Messages"
+msgstr ""
+
+#. module: archive_document
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_kanban
+msgid "Name:"
+msgstr "الاسم"
+
+#. module: archive_document
+#: code:addons/archive_document/models/archive_document.py:0
+#, python-format
+msgid "New"
+msgstr "جديد"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__activity_date_deadline
+msgid "Next Activity Deadline"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__activity_summary
+msgid "Next Activity Summary"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__activity_type_id
+msgid "Next Activity Type"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_needaction_counter
+msgid "Number of Actions"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_has_error_counter
+msgid "Number of errors"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,help:archive_document.field_archive_document__message_needaction_counter
+msgid "Number of messages which requires an action"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,help:archive_document.field_archive_document__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,help:archive_document.field_archive_document__message_unread_counter
+msgid "Number of unread messages"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__ref_date
+msgid "Ref Date"
+msgstr "تاريخ المرجع"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__ref_no
+msgid "Ref No."
+msgstr "رقم الرجع"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__activity_user_id
+msgid "Responsible User"
+msgstr ""
+
+#. module: archive_document
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_search_view
+msgid "Security"
+msgstr "السرية"
+
+#. module: archive_document
+#: model:ir.actions.act_window,name:archive_document.archive_sec_level_action
+#: model:ir.model,name:archive_document.model_security_level
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__sec_id
+#: model:ir.model.fields,field_description:archive_document.field_security_level__name
+#: model:ir.ui.menu,name:archive_document.sub0_config_arc_menu
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_sec_level_form_view
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_sec_level_tree_view
+msgid "Security Level"
+msgstr "درجة السرية"
+
+#. module: archive_document
+#: model:ir.model.fields,help:archive_document.field_archive_document__activity_state
+msgid ""
+"Status based on activities\n"
+"Overdue: Due date is already passed\n"
+"Today: Activity date is today\n"
+"Planned: Future activities."
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__tag_id
+#: model:ir.ui.menu,name:archive_document.sub2_config_arc_menu
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_tag_form_view
+msgid "Tag"
+msgstr "تاغ"
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_tag__name
+msgid "Tag Name"
+msgstr "اسم التاغ"
+
+#. module: archive_document
+#: model_terms:ir.ui.view,arch_db:archive_document.archive_document_form_view
+msgid "Tags..."
+msgstr "تاغ"
+
+#. module: archive_document
+#: model:ir.model.constraint,message:archive_document.constraint_archive_category_arc_cat_name_uk
+msgid "The Category Name should be unique"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.constraint,message:archive_document.constraint_security_level_sec_level_name_uk
+msgid "The Security Level Name should be unique"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.constraint,message:archive_document.constraint_archive_tag_arc_tag_name_uk
+msgid "The Tag Name should be unique"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.constraint,message:archive_document.constraint_archive_document_arc_code_uk
+msgid "The arc_code should be unique"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,help:archive_document.field_archive_document__activity_exception_decoration
+msgid "Type of the exception activity on record."
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_unread
+msgid "Unread Messages"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model.fields,field_description:archive_document.field_archive_document__message_unread_counter
+msgid "Unread Messages Counter"
+msgstr ""
+
+#. module: archive_document
+#: model:ir.model,name:archive_document.model_res_users
+msgid "Users"
+msgstr "المستخدمون"

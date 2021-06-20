@@ -21,7 +21,7 @@
         </field>
     </record>
 
-    <!-- Search Course view -->
+    <!-- Search Archive Document view -->
     <record id="archive_document_search_view" model="ir.ui.view">
         <field name="name">archive.document.search.view</field>
         <field name="model">archive.document</field>
@@ -37,10 +37,12 @@
                 <field name="tag_id"/>
 
                 <group string="Group By">
-                    <filter name="cat_id" string="Category" context="{'group_by':'cat_id'}"/>
+                    <filter name="cat_id" string="Category" context="{'group_by':'cat_id'}"/>                    
+                    <filter name="sec_id" string="Security" context="{'group_by':'sec_id'}"/>
                 </group>
                 <searchpanel>
                     <field name="cat_id" icon="fa-users"/>
+                    <field name="sec_id" icon="fa-users"/>
                 </searchpanel>
             </search>
         </field>
