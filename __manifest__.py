@@ -1,7 +1,7 @@
 {
     'name': "Archive Document",
     'version': '14.0.01',
-    'depends': ['base', 'mail'],
+    'depends': ['base'],
     'author': "Mohammad Omari",
     'website': "adawliah.com",
     'category': 'Category',
@@ -19,6 +19,6 @@
     ],
     # data files containing optionally loaded demonstration data
     'demo': [
-        # 'demo/demo.xml'
+        'demo/demo.xml'
     ],
 }
