@@ -1,14 +1,13 @@
 {
     'name': "Archive Document",
     'version': '14.0.01',
-    'depends': ['base'],
+    'depends': ['base','mail'],
     'author': "Mohammad Omari",
     'website': "adawliah.com",
-    'category': 'Category',
+    'category': 'Accounting/Accounting',
     'description': """
         Archive Document
     """,
-    'installable': True,
     # data files always loaded at installation
     'data': [
         'security/res_groups.xml',
@@ -18,7 +17,10 @@
         'data/ir_sequence.xml',
     ],
     # data files containing optionally loaded demonstration data
-    'demo': [
-        'demo/demo.xml'
-    ],
+    'demo': ['demo/archive_demo.xml'],
+    'images': ['static/images/documents.png'],
+    'installable': True,
+    'application': True,
+    'auto_install': False,
+
 }
