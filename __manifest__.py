@@ -1,7 +1,7 @@
 {
     'name': "Archive Document",
     'version': '14.0.01',
-    'depends': ['base','web', 'mail'],
+    'depends': ['base','web','report_xlsx', 'mail','board'],
     'author': "Mohammad Omari",
     'website': "adawliah.com",
     'category': 'Accounting/Accounting',
@@ -15,10 +15,10 @@
         'security/ir.model.access.csv',
         'views/archive_document.xml',
         'data/ir_sequence.xml',
+        'views/dashboard.xml',
     ],
     # data files containing optionally loaded demonstration data
     'demo': ['demo/archive_demo.xml'],
-    'images': ['static/images/documents.png'],
     'installable': True,
     'application': True,
     'auto_install': False,
