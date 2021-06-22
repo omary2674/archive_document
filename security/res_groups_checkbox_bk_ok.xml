@@ -4,23 +4,18 @@
         <record id="module_category_archive_document" model="ir.module.category">
             <field name="name">Archive Management</field>
             <field name="description">Category For Archive</field>
-            <field name="sequence">100</field>
-        </record>
-
-        <record id="group_user_archive_document" model="res.groups">
-            <field name="name">User</field>
-            <field name="category_id" ref="module_category_archive_document"/>            
         </record>
 
         <record id="group_manager_archive_document" model="res.groups">
-            <field name="name">Manager</field>
+            <field name="name">Archive Document Manager</field>
             <field name="users" eval="[(4, ref('base.user_root')), (4, ref('base.user_admin'))]"/>
             <field name="category_id" ref="module_category_archive_document"/>
-            <field name="implied_ids" eval="[(4, ref('group_user_archive_document'))]" />
         </record>
-
+        <record id="group_user_archive_document" model="res.groups">
+            <field name="name">Archive Document User</field>
+            <field name="category_id" ref="module_category_archive_document"/>
+        </record>
     </data>
- 
     <data noupdate="1">
         <record id="filter_allowed_archive_to_public" model="ir.rule">
             <field name="name">Archive Document Public</field>

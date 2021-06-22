@@ -1,7 +1,7 @@
 {
     'name': "Archive Document",
     'version': '14.0.01',
-    'depends': ['base','mail'],
+    'depends': ['base','web', 'mail'],
     'author': "Mohammad Omari",
     'website': "adawliah.com",
     'category': 'Accounting/Accounting',

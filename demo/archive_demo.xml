@@ -7,7 +7,7 @@
             <field name="name">Secure</field>
         </record>
         <record model="security.level" id="3">
-             <field name="name">High Secure</field>
+            <field name="name">High Secure</field>
         </record>
         <!-- Demo Tag -->
         <record model="archive.tag" id="1">
@@ -30,24 +30,77 @@
             <field name="name">Extracts</field>
             <field name="color">5</field>
         </record>
+        <record model="archive.tag" id="6">
+            <field name="name">E-Commerce</field>
+            <field name="color">6</field>
+        </record>
+        <record model="archive.tag" id="7">
+            <field name="name">End Services</field>
+            <field name="color">7</field>
+        </record>
+        <record model="archive.tag" id="8">
+            <field name="name">Vaction</field>
+            <field name="color">8</field>
+        </record>
+        <record model="archive.tag" id="8">
+            <field name="name">Vaction</field>
+            <field name="color">8</field>
+        </record>
+        <record model="archive.tag" id="9">
+            <field name="name">Final Exit</field>
+            <field name="color">9</field>
+        </record>
+        <record model="archive.tag" id="10">
+            <field name="name">Exit and Return</field>
+            <field name="color">10</field>
+        </record>
+        <record model="archive.tag" id="11">
+            <field name="name">Exit and Return</field>
+            <field name="color">11</field>
+        </record>
+        <record model="archive.tag" id="12">
+            <field name="name">Receiving a Car</field>
+            <field name="color">12</field>
+        </record>
+
+        <record model="archive.tag" id="13">
+            <field name="name">Renewal of Residence</field>
+            <field name="color">13</field>
+        </record>
+        <record model="archive.tag" id="14">
+            <field name="name">Warranty</field>
+            <field name="color">14</field>
+        </record>
+        <record model="archive.tag" id="15">
+            <field name="name">License</field>
+            <field name="color">15</field>
+        </record>
+
+
         <!--        Demo category             -->
-         <record model="archive.category" id="1">
+        <record model="archive.category" id="1">
             <field name="name">Financial</field>
         </record>
-         <record model="archive.category" id="2">
+        <record model="archive.category" id="2">
             <field name="name">HR</field>
         </record>
-         <record model="archive.category" id="3">
+        <record model="archive.category" id="3">
             <field name="name">Sales</field>
         </record>
-         <record model="archive.category" id="4">
+        <record model="archive.category" id="4">
             <field name="name">Purchase</field>
         </record>
-         <record model="archive.category" id="5">
+        <record model="archive.category" id="5">
             <field name="name">Warehouse</field>
         </record>
-         <record model="archive.category" id="6">
+        <record model="archive.category" id="6">
             <field name="name">Payroll</field>
+        </record>
+        <record model="archive.category" id="7">
+            <field name="name">Services</field>
+        </record>
+        <record model="archive.category" id="8">
+            <field name="name">CEO</field>
         </record>
 
     </data>

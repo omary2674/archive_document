@@ -99,9 +99,9 @@ class ArchiveDocument(models.Model):
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
-    cat_ids = fields.Many2many('archive.category', string="Allowed Categories")
-    tag_ids = fields.Many2many('archive.tag', string="Allowed Tags")
-    sec_ids = fields.Many2many('security.level', string="Allowed Security Level")
+    cat_ids = fields.Many2many('archive.category', string="Categories")
+    tag_ids = fields.Many2many('archive.tag', string="Tags")
+    sec_ids = fields.Many2many('security.level', string="Security Level")
 
 
 
