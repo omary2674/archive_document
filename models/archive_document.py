@@ -42,6 +42,7 @@ class ArchiveCategory(models.Model):
          'unique (name)',
          'The Category Name should be unique')}
 
+
 class SecurityLevel(models.Model):
     _name = 'security.level'
     _description = "Security Level"
@@ -53,29 +54,41 @@ class SecurityLevel(models.Model):
          'unique (name)',
          'The Security Level Name should be unique')}
 
+
 class ArchiveDocument(models.Model):
     _name = 'archive.document'
     _inherit = ['mail.thread', 'mail.activity.mixin']
     _description = "Archive Document"
     # _rec_name = "arc_name"
 
-    arc_code = fields.Char(string="Arc Code", required=True, index=True, copy=False, readonly=True, default=_('New'))
+    arc_code = fields.Char(string="Arc Code", required=True,
+                           index=True, copy=False, readonly=True, default=_('New'))
 
-    doc_no = fields.Char(string='Doc No.', required=True, Translate=True)
-    doc_date = fields.Date('Doc Date', required=True, default=fields.Date.today())
+    doc_no = fields.Char(string='Doc No.', index=True,
+                         required=True, Translate=True)
+    doc_date = fields.Date('Doc Date', required=True,
+                           default=fields.Date.today())
     doc_name = fields.Char(string='Doc Name', required=True, Translate=True)
     ref_no = fields.Char(string='Ref No.', Translate=True)
     ref_date = fields.Date(string='Ref Date')
 
     # dept_id = fields.Many2one('archive.dept', string='Dept', Translate=True)
     tag_id = fields.Many2many('archive.tag', string='Tag', Translate=True)
-    cat_id = fields.Many2one('archive.category', string='Category', Translate=True)
+    cat_id = fields.Many2one(
+        'archive.category', string='Category', Translate=True)
     sec_id = fields.Many2one('security.level', string="Security Level")
 
     doc_file = fields.Binary(string="Documents")
     doc_file_name = fields.Char(string="File Name")
     doc_description = fields.Html(string="Description")
     color = fields.Integer()
+    doc_cnt = fields.Integer(default=1)
+    tag_cnt = fields.Integer(string="Tag count", store=True, compute='_get_tag_count')
+
+    @api.depends('tag_id')
+    def _get_tag_count(self):
+        for r in self:
+            r.tag_cnt = len(r.tag_id)
 
     # Constraint to accept only pdf file
     # @api.constrains('doc_file')
@@ -87,7 +100,8 @@ class ArchiveDocument(models.Model):
     def create(self, vals):
         if vals.get('arc_code', _('New')) == _('New'):
             doc_date = vals.get('doc_date')
-            vals['arc_code'] = self.env['ir.sequence'].next_by_code('archive.document', sequence_date=doc_date)
+            vals['arc_code'] = self.env['ir.sequence'].next_by_code(
+                'archive.document', sequence_date=doc_date)
         return super(ArchiveDocument, self).create(vals)
 
     _sql_constraints = {
@@ -102,6 +116,3 @@ class ResUsers(models.Model):
     cat_ids = fields.Many2many('archive.category', string="Categories")
     tag_ids = fields.Many2many('archive.tag', string="Tags")
     sec_ids = fields.Many2many('security.level', string="Security Level")
-
-
-

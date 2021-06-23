@@ -7,13 +7,32 @@
         <field name="view_id" ref="archive_document.archive_document_graph_view"/>
     </record>
 
+    <record id="act_archive_document_sec_graph_view" model="ir.actions.act_window">
+        <field name="name">Document by Security</field>
+        <field name="res_model">archive.document</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="archive_document.archive_document_sec_graph_view"/>
+    </record>
+
+    <record id="act_archive_tag_analysis_graph_view" model="ir.actions.act_window">
+        <field name="name">Document by Tag</field>
+        <field name="res_model">archive.tag.analysis</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="archive_document.archive_tag_analysis_graph_view"/>
+    </record>
+
+    <record id="act_archive_document_pivot_view" model="ir.actions.act_window">
+        <field name="name">Document by Category</field>
+        <field name="res_model">archive.document</field>
+        <field name="view_mode">pivot</field>
+        <field name="view_id" ref="archive_document.archive_document_pivot_view"/>
+    </record>
+
     <record id="act_archive_document_list_view" model="ir.actions.act_window">
         <field name="name">Documents</field>
         <field name="res_model">archive.document</field>
         <field name="view_mode">tree,form</field>
     </record>
-
-
 
     <record id="dashboard_form_view" model="ir.ui.view">
         <field name="name">Dashboard Form</field>
@@ -21,12 +40,14 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form string="Dashboard">
-                <board style="1-2">
+                <board style="1-1">
                     <column>
-                        <action string="Document by Category" name="%(archive_document.act_archive_document_graph_view)d"/>
+                        <action string="Graph Document by Category" name="%(archive_document.act_archive_document_graph_view)d"/>
+                        <action string="Graph Document by Security" name="%(archive_document.act_archive_document_sec_graph_view)d"/>
                     </column>
                     <column>
-                        <action string="Document by Category" name="%(archive_document.act_archive_document_list_view)d"/>
+                        <action string="Graph Document by Tags" name="%(act_archive_tag_analysis_graph_view)d"/>
+                        <action string="Pivot Document " name="%(archive_document.act_archive_document_pivot_view)d"/>
                     </column>
                 </board>
             </form>
@@ -41,12 +62,6 @@
         <field name="view_id" ref="dashboard_form_view"/>
     </record>
 
+    <menuitem id="menu_dashboard" name="Dashboard" parent="root_arc_menu" sequence="1" action="archive_dashboard" />
 
-    <menuitem id="menu_dashboard" 
-              name="Dashboard" 
-              parent="root_arc_menu" 
-              sequence="1" 
-              action="archive_dashboard" />
-
-    
 </odoo>

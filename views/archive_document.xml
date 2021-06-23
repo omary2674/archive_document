@@ -37,7 +37,7 @@
                 <field name="tag_id"/>
 
                 <group string="Group By">
-                    <filter name="cat_id" string="Category" context="{'group_by':'cat_id'}"/>                    
+                    <filter name="cat_id" string="Category" context="{'group_by':'cat_id'}"/>
                     <filter name="sec_id" string="Security" context="{'group_by':'sec_id'}"/>
                 </group>
                 <searchpanel>
@@ -107,17 +107,55 @@
         </field>
     </record>
 
-    <!-- Define Archive Document Graph  -->
+    <!-- Define Archive Document Graph By Category  -->
     <record id="archive_document_graph_view" model="ir.ui.view">
         <field name="name">archive.document.graph</field>
         <field name="model">archive.document</field>
         <field name="arch" type="xml">
             <graph string="Archive Document by Category" type="pie">
                 <field name="cat_id"/>
-                <field name="id" type="measure"/>
+                <field name="doc_cnt" type="measure"/>
             </graph>
         </field>
     </record>
+
+     <!-- Define Archive Document Graph By Tags  -->
+    <record id="archive_tag_analysis_graph_view" model="ir.ui.view">
+        <field name="name">archive.tag.analysis.graph</field>
+        <field name="model">archive.tag.analysis</field>
+        <field name="arch" type="xml">
+            <graph string="Archive Document by Tag" type="pie">
+                <field name="name"/>
+                <field name="tag_cnt" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Define Archive Document Graph By Security  -->
+    <record id="archive_document_sec_graph_view" model="ir.ui.view">
+        <field name="name">archive.document.sec.graph</field>
+        <field name="model">archive.document</field>
+        <field name="arch" type="xml">
+            <graph string="Archive Document by Security" type="pie">
+                <field name="sec_id"/>
+                <field name="doc_cnt" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Define Archive Document Pivot  -->
+    <record id="archive_document_pivot_view" model="ir.ui.view">
+        <field name="name">archive.document.pivot</field>
+        <field name="model">archive.document</field>
+        <field name="arch" type="xml">
+            <pivot string="Archive Document by Category">
+                <field name="doc_date" type="row" />
+                <field name="cat_id" type="col" />
+                <field name="doc_cnt" type="measure" />
+            </pivot>
+        </field>
+    </record>
+
 
     <record id="archive_document_form_view" model="ir.ui.view">
         <field name="name">archive.document.form.view</field>
@@ -127,7 +165,9 @@
 
                 <sheet>
                     <div class="oe_title">
-                        <h2><field name="arc_code"/></h2>
+                        <h2>
+                            <field name="arc_code"/>
+                        </h2>
                     </div>
                     <group string="Archive Document">
                         <group>
@@ -140,8 +180,7 @@
                         <group>
                             <!--                            <field name="dept_id"/>-->
                             <field name="cat_id"/>
-                            <field name="tag_id" widget="many2many_tags"
-                                   options="{'color_field': 'color', 'no_create_edit': True}" placeholder="Tags..."/>
+                            <field name="tag_id" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" placeholder="Tags..."/>
                             <field name="sec_id"/>
                             <field name="doc_file" filename="doc_file_name"/>
                             <field name="doc_file_name" invisible="1"/>
@@ -269,7 +308,7 @@
     <record model="ir.actions.act_window" id="archive_document_list_action">
         <field name="name">Archive Document</field>
         <field name="res_model">archive.document</field>
-        <field name="view_mode">tree,form,calendar,graph,kanban</field>
+        <field name="view_mode">tree,form,graph,pivot,calendar,kanban</field>
         <field name="help" type="html">
             <p class="o_view_nocontent_smiling_face">Create Archive Doc</p>
         </field>
@@ -284,7 +323,7 @@
     <!--        </field>-->
     <!--    </record>-->
 
-     <record model="ir.actions.act_window" id="archive_category_list_action">
+    <record model="ir.actions.act_window" id="archive_category_list_action">
         <field name="name">Archive Category</field>
         <field name="res_model">archive.category</field>
         <field name="view_mode">tree,form</field>
@@ -317,8 +356,8 @@
     <menuitem id="root_arc_menu" name="Archive Document"/>
 
     <!-- Define Main Menu  -->
-    <menuitem id="main_arc_menu"   name="Archive Document" parent="root_arc_menu"  />
-    <menuitem id="config_arc_menu" name="Configuration"    parent="root_arc_menu"  />
+    <menuitem id="main_arc_menu" name="Archive Document" sequence="2" parent="root_arc_menu" />
+    <menuitem id="config_arc_menu" name="Configuration" sequence="3" parent="root_arc_menu" />
 
     <!-- Define Sub-Main Menu  -->
     <menuitem id="sub_main_arc_menu" name="Document" parent="main_arc_menu" action="archive_document_list_action"/>
