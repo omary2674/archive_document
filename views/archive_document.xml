@@ -12,9 +12,9 @@
                 <field name="doc_name"/>
                 <field name="ref_no"/>
                 <field name="ref_date"/>
-                <field name="cat_id"/>
-                <field name="tag_id" widget="many2many_tags" />
-                <field name="sec_id"/>
+                <field name="cat_id" />
+                <field name="tag_id" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="sec_id" />
                 <field name="doc_file_name" invisible="1"/>
                 <field name="doc_file" filename="doc_file_name" widget="binary" readonly="1"/>
             </tree>
@@ -41,8 +41,8 @@
                     <filter name="sec_id" string="Security" context="{'group_by':'sec_id'}"/>
                 </group>
                 <searchpanel>
-                    <field name="cat_id" icon="fa-users"/>
-                    <field name="sec_id" icon="fa-users"/>
+                    <field name="cat_id" icon="fa-users" />
+                    <field name="sec_id" icon="fa-mars"/>
                 </searchpanel>
             </search>
         </field>
@@ -119,7 +119,7 @@
         </field>
     </record>
 
-     <!-- Define Archive Document Graph By Tags  -->
+    <!-- Define Archive Document Graph By Tags  -->
     <record id="archive_tag_analysis_graph_view" model="ir.ui.view">
         <field name="name">archive.tag.analysis.graph</field>
         <field name="model">archive.tag.analysis</field>
@@ -179,11 +179,11 @@
                         </group>
                         <group>
                             <!--                            <field name="dept_id"/>-->
-                            <field name="cat_id"/>
-                            <field name="tag_id" widget="many2many_tags" options="{'color_field': 'color', 'no_create_edit': True}" placeholder="Tags..."/>
+                            <field name="cat_id" />
+                            <field name="tag_id" options="{'color_field': 'color', 'no_create_edit': True}" widget="many2many_tags" placeholder="Tags..."/>
                             <field name="sec_id"/>
-                            <field name="doc_file" filename="doc_file_name"/>
-                            <field name="doc_file_name" invisible="1"/>
+                            <field name="doc_file" filename="doc_file_name" />
+                            <field name="doc_file_name" invisible="1" />
                         </group>
                     </group>
                     <group>
@@ -255,9 +255,9 @@
         <field name="priority" eval="1"/>
         <field name="arch" type="xml">
             <tree string="Archive Tag">
-                <field name="id"/>
+                <field name="id" readonly="1"/>
                 <field name="name"/>
-                <field name="color"/>
+                <field name="color" options="{'color_field': 'color'}"/>
             </tree>
         </field>
     </record>
@@ -269,6 +269,7 @@
             <form string="Archive Tag">
                 <sheet>
                     <group string="Tag">
+                        <field name="id" readonly="1"/>
                         <field name="name"/>
                         <field name="color"/>
                     </group>
@@ -285,7 +286,7 @@
         <field name="arch" type="xml">
             <tree string="Security Level">
                 <field name="id"/>
-                <field name="name"/>
+                <field name="name"/>                
             </tree>
         </field>
     </record>
@@ -297,7 +298,8 @@
             <form string="Security Level">
                 <sheet>
                     <group string="Security Level">
-                        <field name="name"/>
+                        <field name="id" readonly="1"/>
+                        <field name="name"/>                        
                     </group>
                 </sheet>
             </form>

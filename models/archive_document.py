@@ -23,7 +23,7 @@ class ArchiveTag(models.Model):
     _description = "Archive Tag"
 
     name = fields.Char(string='Tag Name', required=True, Translate=True)
-    color = fields.Integer()
+    color = fields.Integer(string='Color')
 
     _sql_constraints = {
         ('arc_tag_name_uk',
@@ -36,6 +36,7 @@ class ArchiveCategory(models.Model):
     _description = "Archive Category"
 
     name = fields.Char(string='Category Name', required=True, Translate=True)
+    color = fields.Integer(string='Color')
 
     _sql_constraints = {
         ('arc_cat_name_uk',
@@ -48,6 +49,7 @@ class SecurityLevel(models.Model):
     _description = "Security Level"
 
     name = fields.Char(string='Security Level', required=True, Translate=True)
+    color = fields.Integer(string='Color')
 
     _sql_constraints = {
         ('sec_level_name_uk',
@@ -64,21 +66,19 @@ class ArchiveDocument(models.Model):
     arc_code = fields.Char(string="Arc Code", required=True,
                            index=True, copy=False, readonly=True, default=_('New'))
 
-    doc_no = fields.Char(string='Doc No.', index=True,
-                         required=True, Translate=True)
-    doc_date = fields.Date('Doc Date', required=True,
-                           default=fields.Date.today())
-    doc_name = fields.Char(string='Doc Name', required=True, Translate=True)
-    ref_no = fields.Char(string='Ref No.', Translate=True)
+    doc_no = fields.Char(string='Doc No.', index=True, required=True)
+    doc_date = fields.Date('Doc Date', default=fields.Date.today())
+    doc_name = fields.Char(string='Doc Name')
+    ref_no = fields.Char(string='Ref No.')
     ref_date = fields.Date(string='Ref Date')
 
-    # dept_id = fields.Many2one('archive.dept', string='Dept', Translate=True)
-    tag_id = fields.Many2many('archive.tag', string='Tag', Translate=True)
+    # dept_id = fields.Many2one('archive.dept', string='Dept')
+    tag_id = fields.Many2many('archive.tag', string='Tag')
     cat_id = fields.Many2one(
-        'archive.category', string='Category', Translate=True)
+        'archive.category', string='Category')
     sec_id = fields.Many2one('security.level', string="Security Level")
 
-    doc_file = fields.Binary(string="Documents")
+    doc_file = fields.Binary(string="Documents", attachment=True)
     doc_file_name = fields.Char(string="File Name")
     doc_description = fields.Html(string="Description")
     color = fields.Integer()

@@ -1,7 +1,7 @@
 {
     'name': "Archive Document",
     'version': '14.0.01',
-    'depends': ['base','web','report_xlsx', 'mail','board'],
+    'depends': ['base', 'web', 'report_xlsx', 'mail', 'board'],
     'author': "Mohammad Omari",
     'website': "adawliah.com",
     'category': 'Accounting/Accounting',
@@ -19,6 +19,7 @@
     ],
     # data files containing optionally loaded demonstration data
     'demo': ['demo/archive_demo.xml'],
+
     'installable': True,
     'application': True,
     'auto_install': False,
