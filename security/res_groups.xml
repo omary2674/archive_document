@@ -26,7 +26,8 @@
             <field name="name">Archive Document Public</field>
             <field name="model_id" ref="model_archive_document"/>
             <field name="groups" eval="[(4, ref('base.group_user'))]"/>
-            <field name="domain_force">[('cat_id', 'in', [cat_id.id for cat_id in user.cat_ids]),
+            <field name="domain_force">[('branch_id', 'in', [branch_id.id for branch_id in user.branch_ids]),
+                                        ('cat_id', 'in', [cat_id.id for cat_id in user.cat_ids]),
                                         ('tag_id', 'in', [tag_id.id for tag_id in user.tag_ids]),
                                         ('sec_id', 'in', [sec_id.id for sec_id in user.sec_ids])
                                         ]
@@ -37,7 +38,8 @@
             <field name="name">Archive Document Users</field>
             <field name="model_id" ref="model_archive_document"/>
             <field name="groups" eval="[(4, ref('archive_document.group_user_archive_document'))]"/>
-            <field name="domain_force">[('cat_id', 'in', [cat_id.id for cat_id in user.cat_ids]),
+            <field name="domain_force">[('branch_id', 'in', [branch_id.id for branch_id in user.branch_ids]),
+                                        ('cat_id', 'in', [cat_id.id for cat_id in user.cat_ids]),
                                         ('tag_id', 'in', [tag_id.id for tag_id in user.tag_ids]),
                                         ('sec_id', 'in', [sec_id.id for sec_id in user.sec_ids])
                                         ]

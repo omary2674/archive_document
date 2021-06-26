@@ -12,6 +12,7 @@
                 <field name="doc_name"/>
                 <field name="ref_no"/>
                 <field name="ref_date"/>
+                <field name="branch_id" />
                 <field name="cat_id" />
                 <field name="tag_id" widget="many2many_tags" options="{'color_field': 'color'}"/>
                 <field name="sec_id" />
@@ -112,7 +113,7 @@
         <field name="name">archive.document.graph</field>
         <field name="model">archive.document</field>
         <field name="arch" type="xml">
-            <graph string="Archive Document by Category" type="pie">
+            <graph string="Archive Document by Category" >
                 <field name="cat_id"/>
                 <field name="doc_cnt" type="measure"/>
             </graph>
@@ -124,7 +125,7 @@
         <field name="name">archive.tag.analysis.graph</field>
         <field name="model">archive.tag.analysis</field>
         <field name="arch" type="xml">
-            <graph string="Archive Document by Tag" type="pie">
+            <graph string="Archive Document by Tag" >
                 <field name="name"/>
                 <field name="tag_cnt" type="measure"/>
             </graph>
@@ -138,6 +139,18 @@
         <field name="arch" type="xml">
             <graph string="Archive Document by Security" type="pie">
                 <field name="sec_id"/>
+                <field name="doc_cnt" type="measure"/>
+            </graph>
+        </field>
+    </record>
+
+    <!-- Define Archive Document Graph By Branch  -->
+    <record id="archive_branch_graph_view" model="ir.ui.view">
+        <field name="name">archive.branch.graph</field>
+        <field name="model">archive.document</field>
+        <field name="arch" type="xml">
+            <graph string="Archive Document by Branch" type="pie">
+                <field name="branch_id"/>
                 <field name="doc_cnt" type="measure"/>
             </graph>
         </field>
@@ -178,11 +191,12 @@
                             <field name="ref_date"/>
                         </group>
                         <group>
-                            <!--                            <field name="dept_id"/>-->
+                            <field name="branch_id"/>
                             <field name="cat_id" />
                             <field name="tag_id" options="{'color_field': 'color', 'no_create_edit': True}" widget="many2many_tags" placeholder="Tags..."/>
                             <field name="sec_id"/>
                             <field name="doc_file" filename="doc_file_name" />
+                            <!-- widget="many2many_binary" -->
                             <field name="doc_file_name" invisible="1" />
                         </group>
                     </group>
@@ -194,32 +208,35 @@
         </field>
     </record>
 
-    <!-- ########################## Archive Departments ############################## -->
-    <!--    <record id="archive_dept_tree_view" model="ir.ui.view">-->
-    <!--        <field name="name">archive.dept.tree.view</field>-->
-    <!--        <field name="model">archive.dept</field>-->
-    <!--        <field name="priority" eval="1"/>-->
-    <!--        <field name="arch" type="xml">-->
-    <!--            <tree string="Archive Departments">-->
-    <!--                <field name="id"/>-->
-    <!--                <field name="name"/>-->
-    <!--            </tree>-->
-    <!--        </field>-->
-    <!--    </record>-->
+    <!-- ########################## Archive Barnch ############################## -->
+    <record id="archive_barnch_tree_view" model="ir.ui.view">
+        <field name="name">archive.barnch.tree.view</field>
+        <field name="model">archive.branch</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree string="Archive Branch">
+                <field name="id"/>
+                <field name="name"/>
+                <field name="color"/>
+            </tree>
+        </field>
+    </record>
 
-    <!--    <record id="archive_dept_form_view" model="ir.ui.view">-->
-    <!--        <field name="name">archive.dept.form.view</field>-->
-    <!--        <field name="model">archive.dept</field>-->
-    <!--        <field name="arch" type="xml">-->
-    <!--            <form string="Archive Departments">-->
-    <!--                <sheet>-->
-    <!--                    <group string="Department">-->
-    <!--                        <field name="name"/>-->
-    <!--                    </group>-->
-    <!--                </sheet>-->
-    <!--            </form>-->
-    <!--        </field>-->
-    <!--    </record>-->
+    <record id="archive_barnch_form_view" model="ir.ui.view">
+        <field name="name">archive.barnch.form.view</field>
+        <field name="model">archive.branch</field>
+        <field name="arch" type="xml">
+            <form string="Archive Branch">
+                <sheet>
+                    <group string="Branch">
+                        <field name="id" readonly="1"/>
+                        <field name="name"/>
+                        <field name="color" />
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
 
     <!-- ########################## Archive Category ############################## -->
     <record id="archive_category_tree_view" model="ir.ui.view">
@@ -230,6 +247,7 @@
             <tree string="Archive Category">
                 <field name="id"/>
                 <field name="name"/>
+                <field name="color" />
             </tree>
         </field>
     </record>
@@ -241,7 +259,9 @@
             <form string="Archive Category">
                 <sheet>
                     <group string="Category">
+                        <field name="id" readonly="1"/>
                         <field name="name"/>
+                        <field name="color" />
                     </group>
                 </sheet>
             </form>
@@ -257,7 +277,7 @@
             <tree string="Archive Tag">
                 <field name="id" readonly="1"/>
                 <field name="name"/>
-                <field name="color" options="{'color_field': 'color'}"/>
+                <field name="color"/>
             </tree>
         </field>
     </record>
@@ -286,7 +306,8 @@
         <field name="arch" type="xml">
             <tree string="Security Level">
                 <field name="id"/>
-                <field name="name"/>                
+                <field name="name"/>
+                <field name="color" />
             </tree>
         </field>
     </record>
@@ -299,14 +320,18 @@
                 <sheet>
                     <group string="Security Level">
                         <field name="id" readonly="1"/>
-                        <field name="name"/>                        
+                        <field name="name"/>
+                        <field name="color" />
                     </group>
                 </sheet>
             </form>
         </field>
     </record>
 
+  
+
     <!--  ###################  Start Actions  ###################  -->
+  
     <record model="ir.actions.act_window" id="archive_document_list_action">
         <field name="name">Archive Document</field>
         <field name="res_model">archive.document</field>
@@ -316,14 +341,14 @@
         </field>
     </record>
 
-    <!--    <record model="ir.actions.act_window" id="archive_dept_list_action">-->
-    <!--        <field name="name">Archive Dept</field>-->
-    <!--        <field name="res_model">archive.dept</field>-->
-    <!--        <field name="view_mode">tree,form</field>-->
-    <!--        <field name="help" type="html">-->
-    <!--            <p class="o_view_nocontent_smiling_face">Create Department</p>-->
-    <!--        </field>-->
-    <!--    </record>-->
+    <record model="ir.actions.act_window" id="archive_barnch_action">
+        <field name="name">Archive Barnch</field>
+        <field name="res_model">archive.branch</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create Branch</p>
+        </field>
+    </record>
 
     <record model="ir.actions.act_window" id="archive_category_list_action">
         <field name="name">Archive Category</field>
@@ -365,9 +390,11 @@
     <menuitem id="sub_main_arc_menu" name="Document" parent="main_arc_menu" action="archive_document_list_action"/>
 
     <!-- Define Sub-Config Menu  -->
-    <menuitem id="sub0_config_arc_menu" name="Security Level" parent="config_arc_menu" action="archive_sec_level_action"/>
-    <menuitem id="sub1_config_arc_menu" name="Category" parent="config_arc_menu" action="archive_category_list_action"/>
-    <menuitem id="sub2_config_arc_menu" name="Tag" parent="config_arc_menu" action="archive_tag_list_action"/>
+    <menuitem id="sub1_config_arc_menu" name="Branch" parent="config_arc_menu" action="archive_barnch_action"/>
+    <menuitem id="sub2_config_arc_menu" name="Security Level" parent="config_arc_menu" action="archive_sec_level_action"/>
+    <menuitem id="sub3_config_arc_menu" name="Category" parent="config_arc_menu" action="archive_category_list_action"/>
+    <menuitem id="sub4_config_arc_menu" name="Tag" parent="config_arc_menu" action="archive_tag_list_action"/>
+
     <!-- End Menu  -->
 </odoo>
 

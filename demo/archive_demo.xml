@@ -1,13 +1,31 @@
 <odoo>
     <data>
+        <!-- Branch -->
+        <record model="archive.branch" id="1">
+            <field name="name">Riyadh</field>
+            <field name="color">1</field>
+        </record>
+        <record model="archive.branch" id="2">
+            <field name="name">Jeedh</field>
+            <field name="color">2</field>
+        </record>
+        <record model="archive.branch" id="3">
+            <field name="name">Khobr</field>
+            <field name="color">3</field>
+        </record>
+
+        <!-- Security -->
         <record model="security.level" id="1">
             <field name="name">Normal</field>
+            <field name="color">1</field>
         </record>
         <record model="security.level" id="2">
             <field name="name">Secure</field>
+            <field name="color">2</field>
         </record>
         <record model="security.level" id="3">
             <field name="name">High Secure</field>
+            <field name="color">3</field>
         </record>
         <!-- Demo Tag -->
         <record model="archive.tag" id="1">
@@ -49,7 +67,7 @@
         <record model="archive.tag" id="10">
             <field name="name">Vaction</field>
             <field name="color">10</field>
-        </record>        
+        </record>
         <record model="archive.tag" id="11">
             <field name="name">Final Exit</field>
             <field name="color">11</field>
@@ -78,6 +96,19 @@
             <field name="name">License</field>
             <field name="color">17</field>
         </record>
+        <record model="archive.tag" id="18">
+            <field name="name">Riyadh</field>
+            <field name="color">18</field>
+        </record>
+        <record model="archive.tag" id="19">
+            <field name="name">Jeeddh</field>
+            <field name="color">19</field>
+        </record>
+        <record model="archive.tag" id="20">
+            <field name="name">Khober</field>
+            <field name="color">20</field>
+        </record>
+
 
         <!--        Demo category             -->
         <record model="archive.category" id="1">

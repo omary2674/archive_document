@@ -14,6 +14,13 @@
         <field name="view_id" ref="archive_document.archive_document_sec_graph_view"/>
     </record>
 
+    <record id="act_archive_branch_graph_view" model="ir.actions.act_window">
+        <field name="name">Document by Branch</field>
+        <field name="res_model">archive.document</field>
+        <field name="view_mode">graph</field>
+        <field name="view_id" ref="archive_document.archive_branch_graph_view"/>
+    </record>
+
     <record id="act_archive_tag_analysis_graph_view" model="ir.actions.act_window">
         <field name="name">Document by Tag</field>
         <field name="res_model">archive.tag.analysis</field>
@@ -44,10 +51,11 @@
                     <column>
                         <action string="Graph Document by Category" name="%(archive_document.act_archive_document_graph_view)d"/>
                         <action string="Graph Document by Security" name="%(archive_document.act_archive_document_sec_graph_view)d"/>
+                        <action string="Pivot Document " name="%(archive_document.act_archive_document_pivot_view)d"/>
                     </column>
                     <column>
                         <action string="Graph Document by Tags" name="%(act_archive_tag_analysis_graph_view)d"/>
-                        <action string="Pivot Document " name="%(archive_document.act_archive_document_pivot_view)d"/>
+                        <action string="Graph Document by Branch" name="%(act_archive_branch_graph_view)d"/>
                     </column>
                 </board>
             </form>

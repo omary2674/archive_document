@@ -6,16 +6,17 @@ from odoo.exceptions import ValidationError, UserError
 from odoo.tools.misc import get_lang
 
 
-# class ArchiveDept(models.Model):
-#     _name = 'archive.dept'
-#     _description = "Archive Departments"
-#
-#     name = fields.Char(string='Dept Name', required=True, Translate=True)
-#
-#     _sql_constraints = {
-#         ('arc_dept_name_uk',
-#          'unique (name)',
-#          'The Dept Name should be unique')}
+class ArchiveBranch(models.Model):
+    _name = 'archive.branch'
+    _description = "Archive Branch"
+
+    name = fields.Char(string='Branch Name', required=True, Translate=True)
+    color = fields.Integer(string='Color')
+
+    _sql_constraints = {
+        ('arc_branch_name_uk',
+         'unique (name)',
+         'The Branch Name should be unique')}
 
 
 class ArchiveTag(models.Model):
@@ -72,11 +73,10 @@ class ArchiveDocument(models.Model):
     ref_no = fields.Char(string='Ref No.')
     ref_date = fields.Date(string='Ref Date')
 
-    # dept_id = fields.Many2one('archive.dept', string='Dept')
+    branch_id = fields.Many2one('archive.branch', string='Branch')
+    cat_id = fields.Many2one('archive.category', string='Category')
     tag_id = fields.Many2many('archive.tag', string='Tag')
-    cat_id = fields.Many2one(
-        'archive.category', string='Category')
-    sec_id = fields.Many2one('security.level', string="Security Level")
+    sec_id = fields.Many2one('security.level', string="Security Level", default=1)
 
     doc_file = fields.Binary(string="Documents", attachment=True)
     doc_file_name = fields.Char(string="File Name")
@@ -113,6 +113,7 @@ class ArchiveDocument(models.Model):
 class ResUsers(models.Model):
     _inherit = 'res.users'
 
+    branch_ids = fields.Many2many('archive.branch', string="Branches")
     cat_ids = fields.Many2many('archive.category', string="Categories")
     tag_ids = fields.Many2many('archive.tag', string="Tags")
     sec_ids = fields.Many2many('security.level', string="Security Level")
