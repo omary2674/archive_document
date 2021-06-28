@@ -10,7 +10,7 @@
             <field name="color">2</field>
         </record>
         <record model="archive.branch" id="3">
-            <field name="name">Khobr</field>
+            <field name="name">Khober</field>
             <field name="color">3</field>
         </record>
 
@@ -96,19 +96,6 @@
             <field name="name">License</field>
             <field name="color">17</field>
         </record>
-        <record model="archive.tag" id="18">
-            <field name="name">Riyadh</field>
-            <field name="color">18</field>
-        </record>
-        <record model="archive.tag" id="19">
-            <field name="name">Jeeddh</field>
-            <field name="color">19</field>
-        </record>
-        <record model="archive.tag" id="20">
-            <field name="name">Khober</field>
-            <field name="color">20</field>
-        </record>
-
 
         <!--        Demo category             -->
         <record model="archive.category" id="1">

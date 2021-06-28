@@ -10,7 +10,7 @@ class ArchiveBranch(models.Model):
     _name = 'archive.branch'
     _description = "Archive Branch"
 
-    name = fields.Char(string='Branch Name', required=True, Translate=True)
+    name = fields.Char(string='Branch Name', required=True, translate=True)
     color = fields.Integer(string='Color')
 
     _sql_constraints = {
@@ -23,7 +23,7 @@ class ArchiveTag(models.Model):
     _name = 'archive.tag'
     _description = "Archive Tag"
 
-    name = fields.Char(string='Tag Name', required=True, Translate=True)
+    name = fields.Char(string='Tag Name', required=True, translate=True)
     color = fields.Integer(string='Color')
 
     _sql_constraints = {
@@ -36,7 +36,7 @@ class ArchiveCategory(models.Model):
     _name = 'archive.category'
     _description = "Archive Category"
 
-    name = fields.Char(string='Category Name', required=True, Translate=True)
+    name = fields.Char(string='Category Name', required=True, translate=True)
     color = fields.Integer(string='Color')
 
     _sql_constraints = {
@@ -49,7 +49,7 @@ class SecurityLevel(models.Model):
     _name = 'security.level'
     _description = "Security Level"
 
-    name = fields.Char(string='Security Level', required=True, Translate=True)
+    name = fields.Char(string='Security Level', required=True, translate=True)
     color = fields.Integer(string='Color')
 
     _sql_constraints = {
@@ -76,14 +76,16 @@ class ArchiveDocument(models.Model):
     branch_id = fields.Many2one('archive.branch', string='Branch')
     cat_id = fields.Many2one('archive.category', string='Category')
     tag_id = fields.Many2many('archive.tag', string='Tag')
-    sec_id = fields.Many2one('security.level', string="Security Level", default=1)
+    sec_id = fields.Many2one(
+        'security.level', string="Security Level", default=1)
 
     doc_file = fields.Binary(string="Documents", attachment=True)
     doc_file_name = fields.Char(string="File Name")
     doc_description = fields.Html(string="Description")
     color = fields.Integer()
     doc_cnt = fields.Integer(default=1)
-    tag_cnt = fields.Integer(string="Tag count", store=True, compute='_get_tag_count')
+    tag_cnt = fields.Integer(
+        string="Tag count", store=True, compute='_get_tag_count')
 
     @api.depends('tag_id')
     def _get_tag_count(self):
