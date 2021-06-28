@@ -391,9 +391,9 @@
 
     <!-- Define Sub-Config Menu  -->
     <menuitem id="sub1_config_arc_menu" name="Branch" parent="config_arc_menu" action="archive_barnch_action"/>
-    <menuitem id="sub2_config_arc_menu" name="Security Level" parent="config_arc_menu" action="archive_sec_level_action"/>
-    <menuitem id="sub3_config_arc_menu" name="Category" parent="config_arc_menu" action="archive_category_list_action"/>
-    <menuitem id="sub4_config_arc_menu" name="Tag" parent="config_arc_menu" action="archive_tag_list_action"/>
+    <menuitem id="sub2_config_arc_menu" name="Category" parent="config_arc_menu" action="archive_category_list_action"/>
+    <menuitem id="sub3_config_arc_menu" name="Tag" parent="config_arc_menu" action="archive_tag_list_action"/>
+    <menuitem id="sub4_config_arc_menu" name="Security Level" parent="config_arc_menu" action="archive_sec_level_action"/>
 
     <!-- End Menu  -->
 </odoo>
