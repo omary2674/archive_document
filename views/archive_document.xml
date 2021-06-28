@@ -12,10 +12,10 @@
                 <field name="doc_name"/>
                 <field name="ref_no"/>
                 <field name="ref_date"/>
-                <field name="branch_id" />
-                <field name="cat_id" />
+                <field name="branch_id"/>
+                <field name="cat_id"/>
                 <field name="tag_id" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                <field name="sec_id" />
+                <field name="sec_id"/>
                 <field name="doc_file_name" invisible="1"/>
                 <field name="doc_file" filename="doc_file_name" widget="binary" readonly="1"/>
             </tree>
@@ -217,7 +217,7 @@
             <tree string="Archive Branch">
                 <field name="id"/>
                 <field name="name"/>
-                <field name="color"/>
+                <field name="color" widget="color_picker"/>
             </tree>
         </field>
     </record>
@@ -231,7 +231,7 @@
                     <group string="Branch">
                         <field name="id" readonly="1"/>
                         <field name="name"/>
-                        <field name="color" />
+                        <field name="color" widget="color_picker"/>
                     </group>
                 </sheet>
             </form>
@@ -247,7 +247,7 @@
             <tree string="Archive Category">
                 <field name="id"/>
                 <field name="name"/>
-                <field name="color" />
+                <field name="color" widget="color_picker"/>
             </tree>
         </field>
     </record>
@@ -261,7 +261,7 @@
                     <group string="Category">
                         <field name="id" readonly="1"/>
                         <field name="name"/>
-                        <field name="color" />
+                        <field name="color" widget="color_picker"/>
                     </group>
                 </sheet>
             </form>
@@ -277,7 +277,7 @@
             <tree string="Archive Tag">
                 <field name="id" readonly="1"/>
                 <field name="name"/>
-                <field name="color"/>
+                <field name="color" widget="color_picker"/>
             </tree>
         </field>
     </record>
@@ -291,7 +291,7 @@
                     <group string="Tag">
                         <field name="id" readonly="1"/>
                         <field name="name"/>
-                        <field name="color"/>
+                        <field name="color" widget="color_picker"/>
                     </group>
                 </sheet>
             </form>
@@ -307,7 +307,7 @@
             <tree string="Security Level">
                 <field name="id"/>
                 <field name="name"/>
-                <field name="color" />
+                <field name="color" widget="color_picker"/>
             </tree>
         </field>
     </record>
@@ -321,7 +321,7 @@
                     <group string="Security Level">
                         <field name="id" readonly="1"/>
                         <field name="name"/>
-                        <field name="color" />
+                        <field name="color" widget="color_picker"/>
                     </group>
                 </sheet>
             </form>
