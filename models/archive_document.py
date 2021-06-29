@@ -68,8 +68,8 @@ class ArchiveDocument(models.Model):
                            index=True, copy=False, readonly=True, default=_('New'))
 
     doc_no = fields.Char(string='Doc No.', index=True, required=True)
-    doc_date = fields.Date('Doc Date', default=fields.Date.today())
-    doc_name = fields.Char(string='Doc Name')
+    doc_date = fields.Date('Doc Date', default=fields.Date.today(), required=True)
+    doc_name = fields.Char(string='Doc Name', required=True, tracking=True)
     ref_no = fields.Char(string='Ref No.')
     ref_date = fields.Date(string='Ref Date')
 
@@ -80,12 +80,13 @@ class ArchiveDocument(models.Model):
         'security.level', string="Security Level", default=1)
 
     doc_file = fields.Binary(string="Documents", attachment=True)
-    doc_file_name = fields.Char(string="File Name")
-    doc_description = fields.Html(string="Description")
+    doc_file_name = fields.Char(string="File Name", tracking=True)
+    # doc_description = fields.Html(string="Description")
+    doc_description = fields.Char(string="Description", tracking=True)
     color = fields.Integer()
     doc_cnt = fields.Integer(default=1)
-    tag_cnt = fields.Integer(
-        string="Tag count", store=True, compute='_get_tag_count')
+    tag_cnt = fields.Integer(string="Tag count", store=True, compute='_get_tag_count')
+    attachment_ids = fields.One2many('archive.document.attachment', 'doc_id', string="Attchments", copy=True, auto_join=True)
 
     @api.depends('tag_id')
     def _get_tag_count(self):
@@ -110,6 +111,15 @@ class ArchiveDocument(models.Model):
         ('arc_code_uk',
          'unique (arc_code)',
          'The arc_code should be unique')}
+
+class ArchiveDocumentAttachment(models.Model):
+    _name = "archive.document.attachment"
+    _description = "Archive Document Attachment"
+
+    doc_id = fields.Many2one('archive.document', string='Doc id', ondelete='cascade', required=True, index=True, copy=False)
+    attachment_file = fields.Binary(string="Attachment", attachment=True)
+    attachment_name = fields.Char(string="Name" , tracking=True)
+    attachment_description = fields.Char(string="Description")
 
 
 class ResUsers(models.Model):

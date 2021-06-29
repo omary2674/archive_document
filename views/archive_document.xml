@@ -28,22 +28,28 @@
         <field name="model">archive.document</field>
         <field name="arch" type="xml">
             <search>
+                <field name="arc_code"/>
                 <field name="doc_no"/>
                 <field name="doc_name"/>
                 <field name="doc_date"/>
                 <field name="ref_no"/>
                 <field name="ref_date"/>
                 <field name="doc_file_name"/>
+                <field name="doc_description"/>
+                <field name="branch_id"/>
                 <field name="cat_id"/>
                 <field name="tag_id"/>
+                <field name="sec_id" />
 
                 <group string="Group By">
+                    <filter name="branch_id" string="Branch" context="{'group_by':'branch_id'}"/>
                     <filter name="cat_id" string="Category" context="{'group_by':'cat_id'}"/>
                     <filter name="sec_id" string="Security" context="{'group_by':'sec_id'}"/>
                 </group>
                 <searchpanel>
+                    <field name="branch_id" icon="fa-home" />
                     <field name="cat_id" icon="fa-users" />
-                    <field name="sec_id" icon="fa-mars"/>
+                    <field name="sec_id" icon="fa-star"/>
                 </searchpanel>
             </search>
         </field>
@@ -113,7 +119,7 @@
         <field name="name">archive.document.graph</field>
         <field name="model">archive.document</field>
         <field name="arch" type="xml">
-            <graph string="Archive Document by Category" >
+            <graph string="Archive Document by Category">
                 <field name="cat_id"/>
                 <field name="doc_cnt" type="measure"/>
             </graph>
@@ -125,7 +131,7 @@
         <field name="name">archive.tag.analysis.graph</field>
         <field name="model">archive.tag.analysis</field>
         <field name="arch" type="xml">
-            <graph string="Archive Document by Tag" >
+            <graph string="Archive Document by Tag">
                 <field name="name"/>
                 <field name="tag_cnt" type="measure"/>
             </graph>
@@ -195,15 +201,32 @@
                             <field name="cat_id" />
                             <field name="tag_id" options="{'color_field': 'color', 'no_create_edit': True}" widget="many2many_tags" placeholder="Tags..."/>
                             <field name="sec_id"/>
-                            <field name="doc_file" filename="doc_file_name" />
-                            <!-- widget="many2many_binary" -->
+                            <field name="doc_file" filename="doc_file_name" widget="binary" />
                             <field name="doc_file_name" invisible="1" />
                         </group>
                     </group>
                     <group>
                         <field name="doc_description"/>
                     </group>
+
+                    <notebook>
+                        <page string="Attchments">
+                            <field name="attachment_ids" widget="section_and_note_one2many">
+                                <tree editable="bottom">
+                                    <field name="attachment_description" />
+                                    <field name="attachment_file" filename="attachment_name" widget="binary" />
+                                    <field name="attachment_name" invisible="1" />
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+
                 </sheet>
+                <div class="oe_chatter">
+                    <field name="message_follower_ids" widget="mail_followers" groups="base.group_user"/>
+                    <field name="activity_ids" widget="mail_activity"/>
+                    <field name="message_ids" widget="mail_thread"/>
+                </div>
             </form>
         </field>
     </record>
@@ -328,10 +351,10 @@
         </field>
     </record>
 
-  
+
 
     <!--  ###################  Start Actions  ###################  -->
-  
+
     <record model="ir.actions.act_window" id="archive_document_list_action">
         <field name="name">Archive Document</field>
         <field name="res_model">archive.document</field>

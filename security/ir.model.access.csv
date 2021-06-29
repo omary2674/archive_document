@@ -1,5 +1,6 @@
 id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
 archive_document_manager,archive.document.manager,model_archive_document,group_manager_archive_document,1,1,1,1
+archive_document_attachment_manager,archive.document.attachment.manager,model_archive_document_attachment,group_manager_archive_document,1,1,1,1
 archive_branch_manager,archive.branch.manager,model_archive_branch,group_manager_archive_document,1,1,1,1
 archive_tag_manager,archive.tag.manager,model_archive_tag,group_manager_archive_document,1,1,1,1
 archive_category_manager,archive.category.manager,model_archive_category,group_manager_archive_document,1,1,1,1
@@ -9,6 +10,7 @@ archive_tag_analysis_manager,archive.tag.analysis.manager,model_archive_tag_anal
 
 archive_tag_analysis_user,archive.tag.analysis.user,model_archive_tag_analysis,group_user_archive_document,1,0,0,0
 archive_document_user,archive.document.user,model_archive_document,group_user_archive_document,1,1,1,0
+archive_document_attachment_user,archive.document.attachment.user,model_archive_document_attachment,group_user_archive_document,1,1,1,0
 archive_branch_user,archive.branch.user,model_archive_branch,group_user_archive_document,1,0,0,0
 archive_tag_user,archive.tag.user,model_archive_tag,group_user_archive_document,1,0,0,0
 archive_category_user,archive.category.user,model_archive_category,group_user_archive_document,1,0,0,0
@@ -16,6 +18,8 @@ archive_security_level_user,archive.security.level.user,model_security_level,gro
 
 archive_tag_analysis_read,archive.tag.analysis.read,model_archive_tag_analysis,base.group_user,1,0,0,0
 archive_document_read,archive.document.read,model_archive_document,base.group_user,1,0,0,0
+archive_document_attachment_read,archive.document.attachment.read,model_archive_document_attachment,base.group_user,1,0,0,0
+
 archive_branch_read,archive.branch.read,model_archive_branch,base.group_user,1,0,0,0
 archive_tag_read,archive.tag.read,model_archive_tag,base.group_user,1,0,0,0
 archive_category_read,archive.category.read,model_archive_category,base.group_user,1,0,0,0
