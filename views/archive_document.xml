@@ -379,15 +379,20 @@
             <form string="Archive Document User">
                 <sheet>
                     <group string="Archive Document User">
-                        <field name="name"/>
-                        <field name="login"/>
-                        <field name="password" password = "True"/>
-                        <field name="phone" />
-                        <field name="mobile" />
-                        <field name="branch_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                        <field name="cat_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                        <field name="sec_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        <group string="User Info">
+                            <field name="name"/>
+                            <field name="login"/>
+                            <field name="password" password = "True"/>
+                            <field name="phone" />
+                            <field name="mobile" />    
+                        </group>
+                        <group string="User Privileges">
+                            <field name="branch_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="cat_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="sec_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+    
+                        </group>
                     </group>
                 </sheet>
             </form>
