@@ -352,7 +352,48 @@
     </record>
 
 
+    <!--  ###################  Users Grant  ###################  -->
+    <record id="archive_document_user_tree_view" model="ir.ui.view">
+        <field name="name">archive.document.user.tree.view</field>
+        <field name="model">res.users</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <tree string="Archive Document Users">
+                <field name="name"/>
+                <field name="login"/>
+                <field name="phone" />
+                <field name="mobile" />
+                <field name="branch_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="cat_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                <field name="sec_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+            </tree>
+        </field>
+    </record>
 
+    <record id="archive_document_user_form" model="ir.ui.view">
+        <field name="name">archive.document.user.form</field>
+        <field name="model">res.users</field>
+        <field name="priority" eval="1"/>
+        <field name="arch" type="xml">
+            <form string="Archive Document User">
+                <sheet>
+                    <group string="Archive Document User">
+                        <field name="name"/>
+                        <field name="login"/>
+                        <field name="password" password = "True"/>
+                        <field name="phone" />
+                        <field name="mobile" />
+                        <field name="branch_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        <field name="cat_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                        <field name="sec_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+   
     <!--  ###################  Start Actions  ###################  -->
 
     <record model="ir.actions.act_window" id="archive_document_list_action">
@@ -400,7 +441,14 @@
         </field>
     </record>
 
-
+    <record model="ir.actions.act_window" id="archive_user_action">
+        <field name="name">Users</field>
+        <field name="res_model">res.users</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">Create user</p>
+        </field>
+    </record>
 
     <!-- Define Root Menu  -->
     <menuitem id="root_arc_menu" name="Archive Document"/>
@@ -417,6 +465,7 @@
     <menuitem id="sub2_config_arc_menu" name="Category" parent="config_arc_menu" action="archive_category_list_action"/>
     <menuitem id="sub3_config_arc_menu" name="Tag" parent="config_arc_menu" action="archive_tag_list_action"/>
     <menuitem id="sub4_config_arc_menu" name="Security Level" parent="config_arc_menu" action="archive_sec_level_action"/>
+    <menuitem id="sub5_config_arc_menu" name="Users" parent="config_arc_menu" action="archive_user_action"/>
 
     <!-- End Menu  -->
 </odoo>
