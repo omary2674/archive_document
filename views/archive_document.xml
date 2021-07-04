@@ -371,27 +371,26 @@
         </field>
     </record>
 
-    <record id="archive_document_user_form" model="ir.ui.view">
-        <field name="name">archive.document.user.form</field>
+    <record id="archive_document_user_form_view" model="ir.ui.view">
+        <field name="name">archive.document.user.form.view</field>
         <field name="model">res.users</field>
-        <field name="priority" eval="1"/>
+        <field name="priority" eval="1"/>        
         <field name="arch" type="xml">
             <form string="Archive Document User">
                 <sheet>
                     <group string="Archive Document User">
                         <group string="User Info">
-                            <field name="name"/>
-                            <field name="login"/>
+                            <field name="name" groups="archive_document.group_manager_archive_document" />
+                            <field name="login" groups="archive_document.group_manager_archive_document" />
                             <field name="password" password = "True"/>
                             <field name="phone" />
                             <field name="mobile" />    
                         </group>
                         <group string="User Privileges">
-                            <field name="branch_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                            <field name="cat_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                            <field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-                            <field name="sec_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
-    
+                            <field name="branch_ids" groups="archive_document.group_manager_archive_document" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="cat_ids" groups="archive_document.group_manager_archive_document" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="tag_ids" groups="archive_document.group_manager_archive_document" widget="many2many_tags" options="{'color_field': 'color'}"/>
+                            <field name="sec_ids" groups="archive_document.group_manager_archive_document" widget="many2many_tags" options="{'color_field': 'color'}"/>
                         </group>
                     </group>
                 </sheet>
@@ -399,6 +398,7 @@
         </field>
     </record>
    
+
     <!--  ###################  Start Actions  ###################  -->
 
     <record model="ir.actions.act_window" id="archive_document_list_action">
@@ -448,12 +448,21 @@
 
     <record model="ir.actions.act_window" id="archive_user_action">
         <field name="name">Users</field>
+        <field name="type">ir.actions.act_window</field>        
         <field name="res_model">res.users</field>
         <field name="view_mode">tree,form</field>
+<!--        <field name="domain">[('user_ids','=',uid),('groups_id.name','in',('Archive Document / Manager',-->
+<!--                                                                               'Archive Document / User')-->
+<!--                                                        )-->
+<!--                              ]</field>-->
         <field name="help" type="html">
+        <field name="view_id" ref="archive_document.archive_document_user_tree_view"/>
+        <field name="form_view_id" ref="archive_document.archive_document_user_form_view" />
             <p class="o_view_nocontent_smiling_face">Create user</p>
         </field>
     </record>
+   
+   
 
     <!-- Define Root Menu  -->
     <menuitem id="root_arc_menu" name="Archive Document"/>
@@ -471,6 +480,8 @@
     <menuitem id="sub3_config_arc_menu" name="Tag" parent="config_arc_menu" action="archive_tag_list_action"/>
     <menuitem id="sub4_config_arc_menu" name="Security Level" parent="config_arc_menu" action="archive_sec_level_action"/>
     <menuitem id="sub5_config_arc_menu" name="Users" parent="config_arc_menu" action="archive_user_action"/>
+    
+    
 
     <!-- End Menu  -->
 </odoo>
