@@ -67,7 +67,7 @@ class ArchiveDocument(models.Model):
     arc_code = fields.Char(string="Arc Code", required=True,
                            index=True, copy=False, readonly=True, default=_('New'))
 
-    doc_no = fields.Char(string='Doc No.', index=True, required=True)
+    doc_no = fields.Char(string='Doc No.', index=True, required=True, copy=False)
     doc_date = fields.Date('Doc Date', default=fields.Date.today(), required=True)
     doc_name = fields.Char(string='Doc Name', required=True, tracking=True)
     ref_no = fields.Char(string='Ref No.')
