@@ -112,6 +112,11 @@ class ArchiveDocument(models.Model):
          'unique (arc_code)',
          'The arc_code should be unique')}
 
+    _sql_constraints = {
+        ('doc_no_uk',
+         'unique (doc_no)',
+         'The doc_no should be unique')}
+
 class ArchiveDocumentAttachment(models.Model):
     _name = "archive.document.attachment"
     _description = "Archive Document Attachment"
